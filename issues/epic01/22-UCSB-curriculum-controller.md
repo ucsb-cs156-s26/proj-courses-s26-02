@@ -9,9 +9,4 @@ Bring that code into this code base, including testing.
 
 # Acceptance Criteria
 
-TODO: Students should write their own.   Look at the ACs from the team01 assignment to get an idea of what this should look like.
-
-
-
-
-
+TODO: Students should write their own. Look at the ACs from the team01 assignment to get an idea of what this should look like.

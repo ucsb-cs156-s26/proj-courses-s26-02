@@ -1,4 +1,4 @@
- # Configuring for MongoDB
+# Configuring for MongoDB
 
 On localhost, you do not need to do any special configuration for MongoDB; it uses
 an in-memory instance of MongoDB similar to how H2 is an in-memory instance of
@@ -25,7 +25,7 @@ dokku mongo:link courses-dev-cgaucho-m-db courses-dev-cgaucho --no-restart
 
 ## Accessing Mongo Command on dokku
 
-If you want to list records in the mongo collections, you can access a mongo command 
+If you want to list records in the mongo collections, you can access a mongo command
 line on dokku with the following command (substitute the name of your mongo db database in place of `courses-m`:
 
 ```
@@ -48,20 +48,18 @@ courses_m>
 
 Some useful commands:
 
-| Command | Explanation |
-|-|-|
-| `show collections` | Show the names of all of the collections in the database |
-| `db.courses.find().limit(5)` | Show the first 5 documents in the `courses` collection |
+| Command                      | Explanation                                              |
+| ---------------------------- | -------------------------------------------------------- |
+| `show collections`           | Show the names of all of the collections in the database |
+| `db.courses.find().limit(5)` | Show the first 5 documents in the `courses` collection   |
 
 ## Some additional queries
 
-This finds all records for `CMPSC   184` for W26. Note that the subject area must be in a field of exactly 8 characters (i.e. exactly three spaces between `CMPSC` and `184`: 
+This finds all records for `CMPSC   184` for W26. Note that the subject area must be in a field of exactly 8 characters (i.e. exactly three spaces between `CMPSC` and `184`:
 
 ```
 db.courses.find({
-  "courseInfo.quarter": "20261", 
+  "courseInfo.quarter": "20261",
   "courseInfo.courseId": /^CMPSC   184/}
 )
 ```
-
-

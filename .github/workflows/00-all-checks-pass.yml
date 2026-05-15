@@ -5,7 +5,6 @@ name: 00 - All Checks Pass
 # The workflow will wait for all other checks to finish before proceeding.
 # If any of the required checks fail, the workflow will exit with an error.
 
-
 on:
   workflow_dispatch:
   pull_request:
