@@ -16,13 +16,10 @@ import org.springframework.test.web.servlet.MvcResult;
 
 @WebMvcTest(controllers = CustomErrorController.class)
 public class CustomErrorControllerTests extends ControllerTestCase {
-  @MockBean
-  private ErrorAttributes errorAttributes;
+  @MockBean private ErrorAttributes errorAttributes;
 
-  @MockBean
-  private UserRepository userRepository;
+  @MockBean private UserRepository userRepository;
 
-  
   @Test
   public void testHandleError_404() throws Exception {
     // Test 404 Not Found error

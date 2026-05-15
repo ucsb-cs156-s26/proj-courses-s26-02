@@ -13,8 +13,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
-
 /**
  * Custom error controller that replaces the default white label error page with a more
  * user-friendly error page.
@@ -37,8 +35,6 @@ public class CustomErrorController extends BasicErrorController {
   @RequestMapping(produces = "text/html")
   @Override
   public ModelAndView errorHtml(HttpServletRequest request, HttpServletResponse response) {
-
-    
 
     // Get error status
     Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
