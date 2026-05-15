@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s26/proj-courses-s26-02
 owner: ucsb-cs156-s26
 repo_name: proj-courses-s26-02
-pull_requests: [{"author":{"id":"U_kgDOB2-xoA","is_bot":false,"login":"dchen451","name":"David Chen"},"headRefName":"dc-courses-rewrite-jobscontroller","number":18,"title":"dc - rewrote Jobs Controller to only test service layer","url":"https://github.com/ucsb-cs156-s26/proj-courses-s26-02/pull/18"}]
+pull_requests: []
