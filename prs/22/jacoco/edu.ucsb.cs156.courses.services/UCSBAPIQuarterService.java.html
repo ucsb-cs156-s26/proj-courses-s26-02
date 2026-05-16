@@ -70,7 +70,7 @@ public class UCSBAPIQuarterService {
 
   public String getCurrentEndQuarterYYYYQ() throws Exception {
 <span class="fc" id="L72">    String quarter = getCurrentQuarter().getQuarter();</span>
-<span class="fc bfc" id="L73" title="All 2 branches covered.">    if (Quarter.getQ(Quarter.yyyyqToInt(quarter)) == &quot;S&quot;){</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">    if (Quarter.getQ(Quarter.yyyyqToInt(quarter)) == &quot;S&quot;) {</span>
 <span class="fc" id="L74">      quarter = Quarter.increment(quarter);</span>
     }
 <span class="fc" id="L76">    quarter = Quarter.increment(quarter);</span>
