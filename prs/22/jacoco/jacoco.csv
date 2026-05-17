@@ -38,7 +38,7 @@ courses,edu.ucsb.cs156.courses.errors,BadEnrollCdException,0,12,0,0,0,3,0,1,0,1
 courses,edu.ucsb.cs156.courses.entities,GradeHistory,0,23,0,4,0,4,0,4,0,2
 courses,edu.ucsb.cs156.courses.models,SectionCSVLine,0,53,0,2,0,14,0,3,0,2
 courses,edu.ucsb.cs156.courses.models,EnrollmentCSV,0,24,0,0,0,9,0,1,0,1
-courses,edu.ucsb.cs156.courses.models,Quarter,0,427,0,43,0,86,0,44,0,22
+courses,edu.ucsb.cs156.courses.models,Quarter,0,425,0,43,0,85,0,44,0,22
 courses,edu.ucsb.cs156.courses.services,GradeHistoryImportServiceImpl,0,429,0,22,0,82,0,20,0,9
 courses,edu.ucsb.cs156.courses.services,UCSBSubjectsService,0,86,0,0,0,23,0,5,0,5
 courses,edu.ucsb.cs156.courses.services,SystemInfoServiceImpl,0,55,0,4,0,15,0,6,0,4

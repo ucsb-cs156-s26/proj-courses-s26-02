@@ -109,8 +109,7 @@ public class Quarter {
 <span class="fc" id="L109">    Quarter qtr = new Quarter(yyyyq);</span>
 <span class="fc" id="L110">    qtr.increment();</span>
 <span class="fc" id="L111">    String qtrStr = qtr.getYYYYQ();</span>
-<span class="fc" id="L112">    qtr = null; // AB - Java has garbage collection</span>
-<span class="fc" id="L113">    return qtrStr;</span>
+<span class="fc" id="L112">    return qtrStr;</span>
   }
 
   /**
@@ -121,18 +120,18 @@ public class Quarter {
    * @return int representation of quarter
    */
   public static int yyyyqToInt(String yyyyq) {
-<span class="fc" id="L124">    String errorMsg =</span>
+<span class="fc" id="L123">    String errorMsg =</span>
         &quot;Argument should be a string representation of a five digit integer yyyyq ending in 1,2,3 or 4&quot;;
-<span class="fc" id="L126">    int result = 0;</span>
+<span class="fc" id="L125">    int result = 0;</span>
     try {
-<span class="fc" id="L128">      result = Integer.parseInt(yyyyq);</span>
-<span class="fc" id="L129">    } catch (Exception e) {</span>
-<span class="fc" id="L130">      throw new IllegalArgumentException(errorMsg);</span>
-<span class="fc" id="L131">    }</span>
-<span class="fc bfc" id="L132" title="All 2 branches covered.">    if (invalidQtr(result)) {</span>
-<span class="fc" id="L133">      throw new IllegalArgumentException(errorMsg);</span>
+<span class="fc" id="L127">      result = Integer.parseInt(yyyyq);</span>
+<span class="fc" id="L128">    } catch (Exception e) {</span>
+<span class="fc" id="L129">      throw new IllegalArgumentException(errorMsg);</span>
+<span class="fc" id="L130">    }</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">    if (invalidQtr(result)) {</span>
+<span class="fc" id="L132">      throw new IllegalArgumentException(errorMsg);</span>
     }
-<span class="fc" id="L135">    return result;</span>
+<span class="fc" id="L134">    return result;</span>
   }
 
   /**
@@ -143,11 +142,11 @@ public class Quarter {
    * @return Qyy representation (e.g. F19)
    */
   public static String yyyyqToQyy(int yyyyq) {
-<span class="fc bfc" id="L146" title="All 2 branches covered.">    if (invalidQtr(yyyyq)) {</span>
-<span class="fc" id="L147">      throw new IllegalArgumentException(</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">    if (invalidQtr(yyyyq)) {</span>
+<span class="fc" id="L146">      throw new IllegalArgumentException(</span>
           &quot;Argument should be a five digit integer in qqqqy format ending in 1,2,3 or 4&quot;);
     }
-<span class="fc" id="L150">    return String.format(&quot;%s%s&quot;, getQ(yyyyq), getYY(yyyyq));</span>
+<span class="fc" id="L149">    return String.format(&quot;%s%s&quot;, getQ(yyyyq), getYY(yyyyq));</span>
   }
 
   /**
@@ -159,13 +158,13 @@ public class Quarter {
    * @return single char string for quarter (e.g. &quot;F&quot;)
    */
   public static String getQ(int yyyyq) {
-<span class="fc bfc" id="L162" title="All 2 branches covered.">    if (invalidQtr(yyyyq)) {</span>
-<span class="fc" id="L163">      throw new IllegalArgumentException(</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">    if (invalidQtr(yyyyq)) {</span>
+<span class="fc" id="L162">      throw new IllegalArgumentException(</span>
           &quot;Argument should be a five digit integer in qqqqy format ending in 1,2,3 or 4&quot;);
     }
-<span class="fc" id="L166">    String[] quarters = new String[] {&quot;W&quot;, &quot;S&quot;, &quot;M&quot;, &quot;F&quot;};</span>
-<span class="fc" id="L167">    int index = yyyyq % 10;</span>
-<span class="fc" id="L168">    return quarters[index - 1];</span>
+<span class="fc" id="L165">    String[] quarters = new String[] {&quot;W&quot;, &quot;S&quot;, &quot;M&quot;, &quot;F&quot;};</span>
+<span class="fc" id="L166">    int index = yyyyq % 10;</span>
+<span class="fc" id="L167">    return quarters[index - 1];</span>
   }
 
   /**
@@ -177,11 +176,11 @@ public class Quarter {
    * @return two char string for year (e.g. &quot;19&quot;)
    */
   public static String getYY(int yyyyq) {
-<span class="fc bfc" id="L180" title="All 2 branches covered.">    if (invalidQtr(yyyyq)) {</span>
-<span class="fc" id="L181">      throw new IllegalArgumentException(</span>
+<span class="fc bfc" id="L179" title="All 2 branches covered.">    if (invalidQtr(yyyyq)) {</span>
+<span class="fc" id="L180">      throw new IllegalArgumentException(</span>
           &quot;Argument should be a five digit integer in qqqqy format ending in 1,2,3 or 4&quot;);
     }
-<span class="fc" id="L184">    return String.format(&quot;%02d&quot;, (yyyyq / 10) % 100);</span>
+<span class="fc" id="L183">    return String.format(&quot;%02d&quot;, (yyyyq / 10) % 100);</span>
   }
 
   /**
@@ -193,41 +192,41 @@ public class Quarter {
    * @return four char string for year (e.g. &quot;2019&quot;)
    */
   public static String getYYYY(int yyyyq) {
-<span class="fc bfc" id="L196" title="All 2 branches covered.">    if (invalidQtr(yyyyq)) {</span>
-<span class="fc" id="L197">      throw new IllegalArgumentException(</span>
+<span class="fc bfc" id="L195" title="All 2 branches covered.">    if (invalidQtr(yyyyq)) {</span>
+<span class="fc" id="L196">      throw new IllegalArgumentException(</span>
           &quot;Argument should be a five digit integer in qqqqy format ending in 1,2,3 or 4&quot;);
     }
-<span class="fc" id="L200">    return String.format(&quot;%04d&quot;, (yyyyq / 10));</span>
+<span class="fc" id="L199">    return String.format(&quot;%04d&quot;, (yyyyq / 10));</span>
   }
 
   public static int qyyToyyyyQ(String qyy) {
-<span class="fc bfc" id="L204" title="All 2 branches covered.">    if (qyy.length() != 3) throw new IllegalArgumentException(&quot;Argument should be in QYY format&quot;);</span>
+<span class="fc bfc" id="L203" title="All 2 branches covered.">    if (qyy.length() != 3) throw new IllegalArgumentException(&quot;Argument should be in QYY format&quot;);</span>
 
-<span class="fc" id="L206">    char q = qyy.charAt(0);</span>
-<span class="fc" id="L207">    String yy = qyy.substring(1, 3);</span>
-<span class="fc" id="L208">    String legalQuarters = &quot;WSMF&quot;;</span>
-<span class="fc" id="L209">    int qInt = legalQuarters.indexOf(q) + 1;</span>
-<span class="fc bfc" id="L210" title="All 2 branches covered.">    if (invalidQtr(qInt)) {</span>
-<span class="fc" id="L211">      throw new IllegalArgumentException(&quot;First char should be one of &quot; + legalQuarters);</span>
+<span class="fc" id="L205">    char q = qyy.charAt(0);</span>
+<span class="fc" id="L206">    String yy = qyy.substring(1, 3);</span>
+<span class="fc" id="L207">    String legalQuarters = &quot;WSMF&quot;;</span>
+<span class="fc" id="L208">    int qInt = legalQuarters.indexOf(q) + 1;</span>
+<span class="fc bfc" id="L209" title="All 2 branches covered.">    if (invalidQtr(qInt)) {</span>
+<span class="fc" id="L210">      throw new IllegalArgumentException(&quot;First char should be one of &quot; + legalQuarters);</span>
     }
-<span class="fc" id="L213">    int yyInt = Integer.parseInt(yy);</span>
-<span class="fc bfc" id="L214" title="All 2 branches covered.">    int century = (yyInt &gt; 50) ? 1900 : 2000;</span>
-<span class="fc" id="L215">    return (century + yyInt) * 10 + qInt;</span>
+<span class="fc" id="L212">    int yyInt = Integer.parseInt(yy);</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">    int century = (yyInt &gt; 50) ? 1900 : 2000;</span>
+<span class="fc" id="L214">    return (century + yyInt) * 10 + qInt;</span>
   }
 
   @Override
   public boolean equals(Object o) {
-<span class="fc bfc" id="L220" title="All 2 branches covered.">    if (o == this) return true;</span>
-<span class="fc bfc" id="L221" title="All 2 branches covered.">    if (!(o instanceof Quarter)) {</span>
-<span class="fc" id="L222">      return false;</span>
+<span class="fc bfc" id="L219" title="All 2 branches covered.">    if (o == this) return true;</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">    if (!(o instanceof Quarter)) {</span>
+<span class="fc" id="L221">      return false;</span>
     }
-<span class="fc" id="L224">    Quarter quarter = (Quarter) o;</span>
-<span class="fc bfc" id="L225" title="All 2 branches covered.">    return yyyyq == quarter.yyyyq;</span>
+<span class="fc" id="L223">    Quarter quarter = (Quarter) o;</span>
+<span class="fc bfc" id="L224" title="All 2 branches covered.">    return yyyyq == quarter.yyyyq;</span>
   }
 
   @Override
   public int hashCode() {
-<span class="fc" id="L230">    return Objects.hashCode(yyyyq);</span>
+<span class="fc" id="L229">    return Objects.hashCode(yyyyq);</span>
   }
 
   /**
@@ -242,24 +241,24 @@ public class Quarter {
    * @return list of quarters in specified order
    */
   public static List&lt;Quarter&gt; quarterList(String start, String end) {
-<span class="fc" id="L245">    List&lt;Quarter&gt; result = new ArrayList&lt;Quarter&gt;();</span>
+<span class="fc" id="L244">    List&lt;Quarter&gt; result = new ArrayList&lt;Quarter&gt;();</span>
 
-<span class="fc" id="L247">    int startInt = Quarter.yyyyqToInt(start);</span>
-<span class="fc" id="L248">    int endInt = Quarter.yyyyqToInt(end);</span>
+<span class="fc" id="L246">    int startInt = Quarter.yyyyqToInt(start);</span>
+<span class="fc" id="L247">    int endInt = Quarter.yyyyqToInt(end);</span>
 
-<span class="fc bfc" id="L250" title="All 2 branches covered.">    if (startInt &lt; endInt) {</span>
-<span class="fc bfc" id="L251" title="All 2 branches covered.">      for (Quarter iter = new Quarter(startInt); iter.getValue() &lt;= endInt; iter.increment()) {</span>
-<span class="fc" id="L252">        Quarter q = new Quarter(iter.getValue());</span>
-<span class="fc" id="L253">        result.add(q);</span>
+<span class="fc bfc" id="L249" title="All 2 branches covered.">    if (startInt &lt; endInt) {</span>
+<span class="fc bfc" id="L250" title="All 2 branches covered.">      for (Quarter iter = new Quarter(startInt); iter.getValue() &lt;= endInt; iter.increment()) {</span>
+<span class="fc" id="L251">        Quarter q = new Quarter(iter.getValue());</span>
+<span class="fc" id="L252">        result.add(q);</span>
       }
     }
-<span class="fc bfc" id="L256" title="All 2 branches covered.">    if (startInt &gt;= endInt) {</span>
-<span class="fc bfc" id="L257" title="All 2 branches covered.">      for (Quarter iter = new Quarter(startInt); iter.getValue() &gt;= endInt; iter.decrement()) {</span>
-<span class="fc" id="L258">        Quarter q = new Quarter(iter.getValue());</span>
-<span class="fc" id="L259">        result.add(q);</span>
+<span class="fc bfc" id="L255" title="All 2 branches covered.">    if (startInt &gt;= endInt) {</span>
+<span class="fc bfc" id="L256" title="All 2 branches covered.">      for (Quarter iter = new Quarter(startInt); iter.getValue() &gt;= endInt; iter.decrement()) {</span>
+<span class="fc" id="L257">        Quarter q = new Quarter(iter.getValue());</span>
+<span class="fc" id="L258">        result.add(q);</span>
       }
     }
-<span class="fc" id="L262">    return result;</span>
+<span class="fc" id="L261">    return result;</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
