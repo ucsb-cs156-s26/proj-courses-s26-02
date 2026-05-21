@@ -62,14 +62,14 @@ import org.springframework.web.bind.annotation.RestController;
   String makeFormattedCourseId(String subjectArea, String courseNumber) {
 <span class="fc" id="L63">    String[] nums = courseNumber.split(&quot;[a-zA-Z]+&quot;);</span>
 <span class="fc" id="L64">    String[] suffs = courseNumber.split(&quot;[0-9]+&quot;);</span>
-<span class="fc bfc" id="L65" title="All 2 branches covered.">    if (suffs.length &lt; 2) { // no suffix</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">    if (suffs.length &lt; 2) { // no suffix</span>
 <span class="fc" id="L66">      return String.format(&quot;%-8s&quot;, subjectArea) // 'CMPSC   '</span>
 <span class="fc" id="L67">          + String.format(&quot;%3s&quot;, nums[0]) // '  8'</span>
       ;
     }
-<span class="fc" id="L70">    return String.format(&quot;%-8s&quot;, subjectArea) // 'CMPSC   '</span>
-<span class="fc" id="L71">        + String.format(&quot;%3s&quot;, nums[0]) // '  8'</span>
-<span class="fc" id="L72">        + String.format(&quot;%-2s&quot;, suffs[1]) // 'A '</span>
+<span class="nc" id="L70">    return String.format(&quot;%-8s&quot;, subjectArea) // 'CMPSC   '</span>
+<span class="nc" id="L71">        + String.format(&quot;%3s&quot;, nums[0]) // '  8'</span>
+<span class="nc" id="L72">        + String.format(&quot;%-2s&quot;, suffs[1]) // 'A '</span>
     ;
   }
 }
