@@ -51,7 +51,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 <span class="fc" id="L52">    List&lt;EnrollmentDataPoint&gt; matchingPoints = new ArrayList&lt;&gt;();</span>
 <span class="fc bfc" id="L53" title="All 2 branches covered.">    for (EnrollmentDataPoint point : allPointsForQuarter) {</span>
-<span class="pc bpc" id="L54" title="1 of 2 branches missed.">      if (point.getCourseId().equals(formattedCourseId)) {</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">      if (point.getCourseId().equals(formattedCourseId)) {</span>
 <span class="fc" id="L55">        matchingPoints.add(point);</span>
       }
 <span class="fc" id="L57">    }</span>
