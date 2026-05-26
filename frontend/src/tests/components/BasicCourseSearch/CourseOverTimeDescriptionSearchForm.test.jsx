@@ -38,10 +38,14 @@ describe("CourseOverTimeDescriptionSearchForm tests", () => {
   test("renders header and description", () => {
     renderComponent();
     expect(
-      screen.getByRole("heading", { name: /search course descriptions over time/i }),
+      screen.getByRole("heading", {
+        name: /search course descriptions over time/i,
+      }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/find courses whose catalog descriptions contain the terms you enter/i),
+      screen.getByText(
+        /find courses whose catalog descriptions contain the terms you enter/i,
+      ),
     ).toBeInTheDocument();
   });
 
@@ -119,5 +123,137 @@ describe("CourseOverTimeDescriptionSearchForm tests", () => {
       "style",
       "padding-top: 10px; padding-bottom: 10px;",
     );
+  });
+
+  test("bottom row has correct test ID", () => {
+    renderComponent();
+    const bottomRow = screen.getByTestId(
+      "CourseOverTimeDescriptionSearchForm-bottom-row",
+    );
+    expect(bottomRow).toBeInTheDocument();
+  });
+
+  test("uses default values when localStorage is empty", () => {
+    renderComponent();
+    const selectStartQuarter = screen.getByLabelText("Start Quarter");
+    const selectEndQuarter = screen.getByLabelText("End Quarter");
+    const searchTerms = screen.getByLabelText("Search Terms");
+    const selectCheckbox = screen.getByTestId(
+      "CourseOverTimeDescriptionSearchForm-checkbox",
+    );
+
+    expect(selectStartQuarter.value).toBeTruthy();
+    expect(selectEndQuarter.value).toBeTruthy();
+    expect(searchTerms.value).toBe("");
+    expect(selectCheckbox.checked).toBe(false);
+  });
+
+  test("uses saved values from localStorage when available", () => {
+    localStorage.setItem(
+      "CourseOverTimeDescriptionSearch.StartQuarter",
+      "20201",
+    );
+    localStorage.setItem("CourseOverTimeDescriptionSearch.EndQuarter", "20204");
+    localStorage.setItem(
+      "CourseOverTimeDescriptionSearch.SearchTerms",
+      "machine learning",
+    );
+    localStorage.setItem("CourseOverTimeDescriptionSearch.Checkbox", "true");
+
+    const { rerender } = renderComponent();
+
+    rerender(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <CourseOverTimeDescriptionSearchForm fetchJSON={() => {}} />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
+    const selectStartQuarter = screen.getByLabelText("Start Quarter");
+    const selectEndQuarter = screen.getByLabelText("End Quarter");
+    const searchTerms = screen.getByLabelText("Search Terms");
+    const selectCheckbox = screen.getByTestId(
+      "CourseOverTimeDescriptionSearchForm-checkbox",
+    );
+
+    expect(selectStartQuarter.value).toBe("20201");
+    expect(selectEndQuarter.value).toBe("20204");
+    expect(searchTerms.value).toBe("machine learning");
+    expect(selectCheckbox.checked).toBe(true);
+  });
+
+  test("updates localStorage when search terms change", () => {
+    vi.spyOn(Storage.prototype, "setItem");
+    renderComponent();
+
+    const searchTerms = screen.getByLabelText("Search Terms");
+    userEvent.type(searchTerms, "algorithms");
+
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+      "CourseOverTimeDescriptionSearch.SearchTerms",
+      expect.stringContaining("algorithms"),
+    );
+  });
+
+  test("updates localStorage when checkbox is toggled", () => {
+    vi.spyOn(Storage.prototype, "setItem");
+    renderComponent();
+
+    const selectCheckbox = screen.getByTestId(
+      "CourseOverTimeDescriptionSearchForm-checkbox",
+    );
+    userEvent.click(selectCheckbox);
+
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+      "CourseOverTimeDescriptionSearch.Checkbox",
+      "true",
+    );
+
+    userEvent.click(selectCheckbox);
+
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+      "CourseOverTimeDescriptionSearch.Checkbox",
+      "false",
+    );
+  });
+
+  test("render form with all fields present", () => {
+    renderComponent();
+
+    expect(screen.getByLabelText("Start Quarter")).toBeInTheDocument();
+    expect(screen.getByLabelText("End Quarter")).toBeInTheDocument();
+    expect(screen.getByLabelText("Search Terms")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("CourseOverTimeDescriptionSearchForm-checkbox"),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /submit/i })).toBeInTheDocument();
+  });
+
+  test("clear checkbox and resubmit with unchecked state", async () => {
+    const fetchJSONSpy = vi.fn().mockResolvedValue({});
+
+    renderComponent(fetchJSONSpy);
+
+    const selectCheckbox = screen.getByTestId(
+      "CourseOverTimeDescriptionSearchForm-checkbox",
+    );
+    userEvent.click(selectCheckbox);
+    expect(selectCheckbox.checked).toBe(true);
+
+    userEvent.click(selectCheckbox);
+    expect(selectCheckbox.checked).toBe(false);
+
+    const submitButton = screen.getByRole("button", { name: /submit/i });
+    userEvent.click(submitButton);
+
+    await waitFor(() => expect(fetchJSONSpy).toHaveBeenCalledTimes(1));
+
+    expect(fetchJSONSpy).toHaveBeenCalledWith(expect.any(Object), {
+      startQuarter: expect.any(String),
+      endQuarter: expect.any(String),
+      searchTerms: "",
+      checkbox: false,
+    });
   });
 });

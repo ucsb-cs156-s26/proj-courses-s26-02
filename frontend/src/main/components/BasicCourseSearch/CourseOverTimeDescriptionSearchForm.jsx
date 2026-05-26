@@ -61,8 +61,9 @@ const CourseOverTimeDescriptionSearchForm = ({ fetchJSON }) => {
           <Col>
             <h1>Search Course Descriptions Over Time</h1>
             <p className="text-muted">
-              Find courses whose catalog descriptions contain the terms you enter.
-              Use the quarter range and Lectures Only filter to narrow the results.
+              Find courses whose catalog descriptions contain the terms you
+              enter. Use the quarter range and Lectures Only filter to narrow
+              the results.
             </p>
           </Col>
         </Row>
