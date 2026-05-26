@@ -21,6 +21,7 @@ export default function CourseOverTimeDescriptionIndexPage() {
     setCourseJSON(courses);
   };
 
+  // Stryker disable next-line all : hard to set up test for caching
   const mutation = useBackendMutation(objectToAxiosParams, { onSuccess }, []);
 
   async function fetchCourseOverTimeJSON(_event, query) {

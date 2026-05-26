@@ -22,6 +22,7 @@ import SectionSearchesIndexPageNotLoggedIn from "main/pages/SectionSearches/Sect
 import CourseOverTimeIndexPage from "main/pages/CourseOverTime/CourseOverTimeIndexPage";
 import CourseOverTimeInstructorIndexPage from "main/pages/CourseOverTime/CourseOverTimeInstructorIndexPage";
 import CourseOverTimeBuildingsIndexPage from "main/pages/CourseOverTime/CourseOverTimeBuildingsIndexPage";
+import CourseOverTimeDescriptionIndexPage from "main/pages/CourseOverTime/CourseOverTimeDescriptionIndexPage";
 
 import GeneralEducationSearchPage from "main/pages/GeneralEducation/Search/GeneralEducationSearchPage";
 import CourseDetailsIndexPage from "main/pages/CourseDetails/CourseDetailsIndexPage";
@@ -106,6 +107,11 @@ function App() {
           exact
           path="/courseovertime/instructorsearch"
           element={<CourseOverTimeInstructorIndexPage />}
+        />
+        <Route
+          exact
+          path="/courseovertime/descriptionsearch"
+          element={<CourseOverTimeDescriptionIndexPage />}
         />
         <Route
           exact
