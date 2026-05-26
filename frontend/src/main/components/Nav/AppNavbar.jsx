@@ -90,7 +90,7 @@ export default function AppNavbar({
                   href="/courseovertime/descriptionsearch"
                   data-testid="appnavbar-course-over-time-description-search"
                 >
-                  Course Description History
+                  Search by Course Description
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   href="/courseovertime/buildingsearch/classrooms"
