@@ -52,7 +52,7 @@ courses,edu.ucsb.cs156.courses.services,CurrentUserService,0,10,0,2,0,2,0,3,0,2
 courses,edu.ucsb.cs156.courses.services,IsStaleService,0,68,0,6,0,20,0,7,0,4
 courses,edu.ucsb.cs156.courses.services,UCSBAPIQuarterService.new TypeReference() {...},0,3,0,0,0,1,0,1,0,1
 courses,edu.ucsb.cs156.courses.services,SectionCSVLineService,0,13,0,0,0,3,0,3,0,3
-courses,edu.ucsb.cs156.courses.services,UCSBAPIQuarterService,0,460,0,36,0,110,0,38,0,20
+courses,edu.ucsb.cs156.courses.services,UCSBAPIQuarterService,1,460,0,36,1,110,1,38,1,20
 courses,edu.ucsb.cs156.courses.services,EnrollmentCSVService,0,20,0,2,0,5,0,4,0,3
 courses,edu.ucsb.cs156.courses.services,UCSBSubjectsService.new TypeReference() {...},0,3,0,0,0,1,0,1,0,1
 courses,edu.ucsb.cs156.courses.services,UpdateService,0,38,0,2,0,9,0,3,0,2
