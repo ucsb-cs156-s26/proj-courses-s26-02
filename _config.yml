@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s26/proj-courses-s26-02
 owner: ucsb-cs156-s26
 repo_name: proj-courses-s26-02
-pull_requests: [{"author":{"id":"U_kgDOCMR-Zg","is_bot":false,"login":"Andrew-UCSB","name":""},"headRefName":"Ab-EndQtr-from-currentQtr-UCSBAPIQuarterService-ScheduledJobs-IsStaleServiceTests","number":47,"title":"Made endQtrYYYQ pull from getCurrentEndQuarter rather than env variable for remaining backend files.","url":"https://github.com/ucsb-cs156-s26/proj-courses-s26-02/pull/47"}]
+pull_requests: []
