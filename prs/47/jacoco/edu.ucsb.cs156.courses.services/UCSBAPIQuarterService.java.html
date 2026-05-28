@@ -98,7 +98,7 @@ public class UCSBAPIQuarterService {
   // every night at midnight
   @Scheduled(cron = &quot;0 0 0 * * *&quot;)
   @CacheEvict(value = &quot;currentQuarter&quot;, allEntries = true)
-<span class="nc" id="L101">  void evictCurrentQuarterAtMidnight() {}</span>
+<span class="fc" id="L101">  void evictCurrentQuarterAtMidnight() {}</span>
 
   // This says to cache the value in a cache called
   // currentQuarter, and only allow one call at a time
