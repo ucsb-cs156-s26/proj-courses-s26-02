@@ -1,5 +1,4 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-courses,edu.ucsb.cs156.courses.controllers,CSRFController,0,5,0,0,0,2,0,2,0,2
 courses,edu.ucsb.cs156.courses.controllers,CourseOverTimeDescriptionController,0,42,0,2,0,9,0,3,0,2
 courses,edu.ucsb.cs156.courses.controllers,CustomErrorController,0,129,0,14,0,29,0,10,0,3
 courses,edu.ucsb.cs156.courses.controllers,EnrollmentController,0,98,0,0,0,24,0,5,0,5
@@ -52,13 +51,14 @@ courses,edu.ucsb.cs156.courses.services,CurrentUserService,0,10,0,2,0,2,0,3,0,2
 courses,edu.ucsb.cs156.courses.services,IsStaleService,0,68,0,6,0,20,0,7,0,4
 courses,edu.ucsb.cs156.courses.services,UCSBAPIQuarterService.new TypeReference() {...},0,3,0,0,0,1,0,1,0,1
 courses,edu.ucsb.cs156.courses.services,SectionCSVLineService,0,13,0,0,0,3,0,3,0,3
-courses,edu.ucsb.cs156.courses.services,UCSBAPIQuarterService,0,461,0,36,0,111,0,39,0,21
+courses,edu.ucsb.cs156.courses.services,UCSBAPIQuarterService,0,498,0,40,0,123,0,43,0,23
 courses,edu.ucsb.cs156.courses.services,EnrollmentCSVService,0,20,0,2,0,5,0,4,0,3
 courses,edu.ucsb.cs156.courses.services,UCSBSubjectsService.new TypeReference() {...},0,3,0,0,0,1,0,1,0,1
 courses,edu.ucsb.cs156.courses.services,UpdateService,0,38,0,2,0,9,0,3,0,2
 courses,edu.ucsb.cs156.courses.services,GradeHistoryImportServiceImpl.NullHeaderException,0,4,0,0,0,2,0,1,0,1
 courses,edu.ucsb.cs156.courses.services,UCSBCurriculumService,0,870,0,6,0,179,0,19,0,16
 courses,edu.ucsb.cs156.courses.utilities,CourseUtilities,0,86,0,7,0,18,0,7,0,2
+courses,edu.ucsb.cs156.courses.filters,RateLimitFilter,0,85,0,6,0,24,0,7,0,4
 courses,edu.ucsb.cs156.courses.services.jobs,JobContext,0,48,0,4,0,6,0,4,0,2
 courses,edu.ucsb.cs156.courses.services.jobs,JobService,0,73,0,2,0,20,0,6,0,5
 courses,edu.ucsb.cs156.courses.services.jobs,JobRateLimit,0,40,0,0,0,12,0,4,0,4
